@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snakes and Ladders</title>
+    {% load static %}
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+        #game-board {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background-image: url('{% static "game/images/board.png" %}');
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+        .player-icon {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-image: url('{% static "game/images/player_icon.png" %}');
+            background-size: contain;
+            background-repeat: no-repeat;
+            top: 540px; /* Initial position for number 1 */
+            left: 0px;  /* Initial position for number 1 */
+        }
+        #dice-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #dice {
+            font-size: 24px;
+            padding: 10px 20px;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+        }
+        #dice img {
+            width: 80%;
+            height: auto;
+        }
+        #roll-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-board">
+        <div class="player-icon" id="player"></div>
+    </div>
+    <div id="dice-container">
+        <div id="dice">
+            <img src="{% static 'game/images/dice-1.png' %}" alt="Dice" id="dice-image">
+        </div>
+        <button id="roll-button">Roll Dice</button>
+    </div>
+    <script src="{% static 'game/js/game.js' %}"></script>
+</body>
+</html>
